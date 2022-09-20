@@ -2,7 +2,6 @@ import random
 from termcolor import colored
 import os
 
-
 def load_word():
     with open("words.txt", "r") as f:
         lines = f.readlines()
@@ -24,7 +23,6 @@ def display_graph(turn, guess, word, graph):
 
 
 def main():
-    clearconsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
     word = load_word()
     turn = 0
@@ -39,7 +37,6 @@ def main():
     for lines in graph:
         print(*lines)
     guess = input('Guess a word: ')
-    clearconsole()
 
     while turn <= 4:
         if len(guess) != 5:
@@ -60,9 +57,10 @@ def main():
             display_graph(turn, guess, word, graph)
             guess = input('Guess a word: ')
             turn += 1
-        clearconsole()
     return ''
 
 
 if __name__ == "__main__":
     print(main())
+
+
